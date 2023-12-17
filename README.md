@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/Mutohi-R/Time-Tracking)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution URL here](https://github.com/Mutohi-R/Time-Tracking)
+- Live Site URL: [Live site URL here](https://voluble-seahorse-bc7b9a.netlify.app/)
 
 ## My process
 
