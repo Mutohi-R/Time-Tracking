@@ -1,0 +1,426 @@
+:root {
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-primary-100: hsl(236, 100%, 87%);
+  --clr-primary-200: hsl(235, 45%, 61%);
+  --clr-primary-300: hsl(246, 80%, 60%);
+  --clr-primary-400: hsl(235, 46%, 20%);
+  --clr-primary-500: hsl(226, 43%, 10%);
+
+  --clr-accent-orange: hsl(15, 100%, 70%);
+  --clr-accent-blue: hsl(195, 74%, 62%);
+  --clr-accent-red: hsl(348, 100%, 68%);
+  --clr-accent-green: hsl(145, 58%, 55%);
+  --clr-accent-purple: hsl(264, 64%, 52%);
+  --clr-accent-yellow: hsl(43, 84%, 65%);
+
+  /* Step 0: 18.00px → 20.00px */
+  --step-0: clamp(1.125rem, 1.0793rem + 0.1951vw, 1.25rem);
+
+  /* Step 1: 20.25px → 22.50px */
+  --step-1: clamp(1.35rem, 1.2723rem + 0.3317vw, 1.5625rem);
+
+  /* Step 2: 22.78px → 25.31px */
+  --step-2: clamp(1.62rem, 1.4981rem + 0.52vw, 1.9531rem);
+
+  /* Step 3: 25.63px → 28.48px */
+  --step-3: clamp(1.9438rem, 1.7617rem + 0.7766vw, 2.4413rem);
+
+  --ff-base: "Rubik", sans-serif;
+  --fs-400: var(--step-0);
+  --fs-500: var(--step-1);
+  --fs-600: var(--step-2);
+  --fs-700: var(--step-3);
+
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+}
+
+/* Andy Bell's CSS reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font: inherit;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* GENERAL STYLES */
+body {
+  display: grid;
+  place-content: center;
+
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-primary-500);
+  font-family: var(--ff-base);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-300);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* COMPOSITION */
+.flow > * + * {
+  margin-top: 1em;
+}
+
+.container {
+  --_max-width: 1272px;
+  --_padding: 1rem;
+
+  width: min(var(--_max-width), 100% - (var(--_padding) * 2));
+  margin-inline: auto;
+  padding-block: var(--_padding);
+}
+
+/* UTILITY CLASSES */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-col {
+  grid-auto-flow: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-0 {
+  gap: 0.3rem;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.gap-3 {
+  gap: 2rem;
+}
+
+.gap-4 {
+  gap: 2rem;
+}
+
+.fs-500 {
+  font-size: var(--fs-500);
+}
+
+.fs-600 {
+  font-size: var(--fs-600);
+}
+
+.fs-700 {
+  font-size: var(--fs-700);
+}
+
+.fw-light {
+  font-weight: var(--fw-300);
+}
+
+.fw-reg {
+  font-weight: var(--fw-400);
+}
+
+.fw-semibold {
+  font-weight: var(--fw-500);
+}
+
+.text-clr-primary-100 {
+  color: var(--clr-primary-100);
+}
+
+.bg-primary-300 {
+  background-color: var(--clr-primary-300);
+}
+
+.bg-primary-400 {
+  background-color: var(--clr-primary-400);
+}
+
+.bg-accent-orange {
+  background-color: var(--clr-accent-orange);
+}
+
+.bg-accent-blue {
+  background-color: var(--clr-accent-blue);
+}
+
+.bg-accent-red {
+  background-color: var(--clr-accent-red);
+}
+
+.bg-accent-green {
+  background-color: var(--clr-accent-green);
+}
+
+.bg-accent-purple {
+  background-color: var(--clr-accent-purple);
+}
+
+.bg-accent-yellow {
+  background-color: var(--clr-accent-yellow);
+}
+
+/* BLOCK */
+.report-card {
+  display: grid;
+  gap: 1.5rem;
+  grid-auto-columns: 1fr;
+  grid-template-areas:
+    "username"
+    "work"
+    "study"
+    "play"
+    "exercise"
+    "social"
+    "self-care";
+}
+
+@media only screen and (min-width: 59rem) {
+  .report-card {
+    gap: 2rem 1.5rem;
+    grid-template-areas:
+      "username work play study"
+      "username exercise social self-care";
+  }
+
+  .user-card {
+    grid-row: span 2;
+  }
+}
+
+.user-card {
+  border-radius: 1rem;
+}
+
+.user-card .username {
+  --_padding-inline: clamp(2.25rem, 2.1585rem + 0.3902vw, 2.5rem);
+  padding: 2rem var(--_padding-inline);
+  border-radius: 1rem;
+}
+
+@media only screen and (min-width: 59rem) {
+  .user-card .username {
+    --_padding-inline: clamp(1.6875rem, 1.6189rem + 0.2927vw, 1.875rem);
+    flex-direction: column;
+    gap: 2rem;
+    align-items: start;
+    padding-block-end: 4.5rem;
+  }
+
+  .name {
+    font-size: var(--fs-700);
+  }
+}
+
+.user-card .days {
+  --_padding-inline: clamp(1.6875rem, 1.6189rem + 0.2927vw, 1.875rem);
+  padding: 2rem var(--_padding-inline);
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
+@media only screen and (min-width: 59rem) {
+  .user-card .days {
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+  }
+}
+
+.user-card .days a:is(:hover, :focus),
+.user-card .days a:where(:link, :active, :visited).active{
+  color: var(--clr-neutral-100);
+  font-weight: var(--fw-400);
+}
+
+a:is(:link, :active, :visited).active {
+  color: var(--clr-neutral-100);
+}
+
+.user-card .days > * {
+  text-align: center;
+}
+
+.user-card img {
+  width: 5rem;
+  border: 3px solid var(--clr-neutral-100);
+  border-radius: 50%;
+}
+
+.tracking-bg {
+  border-radius: 1rem;
+  display: grid;
+  
+  background-repeat: no-repeat;
+  background-position: top -14px right 20px;
+  padding-block-start: 2.5rem;
+}
+
+.tracking-bg:nth-of-type(2) {
+  grid-area: work;
+  background-image: url(./images/icon-work.svg);
+}
+
+.tracking-bg:nth-of-type(3) {
+  grid-area: play;
+  background-image: url(./images/icon-play.svg);
+}
+
+.tracking-bg:nth-of-type(4) {
+  grid-area: study;
+  background-image: url(./images/icon-study.svg);
+}
+
+.tracking-bg:nth-of-type(5) {
+  grid-area: exercise;
+  background-image: url(./images/icon-exercise.svg);
+}
+
+.tracking-bg:nth-of-type(6) {
+  grid-area: social;
+  background-image: url(./images/icon-social.svg);
+}
+
+.tracking-bg:nth-of-type(7) {
+  grid-area: self-care;
+  background-image: url(./images/icon-self-care.svg);
+}
+
+.tracking {
+  --_padding-inline: clamp(1.6875rem, 1.6189rem + 0.2927vw, 1.875rem);
+  padding: 2.3rem var(--_padding-inline);
+  border-radius: 1rem;
+  align-self: end;
+}
+
+.tracking:hover {
+  cursor: pointer;
+  background-color: color-mix(in oklab,var(--clr-primary-400) 72%, hsl(244, 100%, 78%));
+}
+
+.tracking .time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (min-width: 59rem) {
+  .tracking .time {
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+  }
+}
+
+.menu:hover {
+    cursor: pointer;
+    color: var(--clr-neutral-100) !important;
+}
+
+.attribution {
+  margin-block-start: 1em;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
